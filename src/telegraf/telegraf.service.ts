@@ -12,6 +12,16 @@ export class TelegrafService {
     );
   }
 
+  public sendMessageV1Chat(text: string) {
+    return this.bt.telegram.sendMessage(
+      this.configService.get<string>('TELEGRAM_CHAT_ID_V1'),
+      text,
+      {
+        parse_mode: 'HTML',
+      },
+    );
+  }
+
   public sendMessage(text: string) {
     return this.bt.telegram.sendMessage(
       this.configService.get<string>('TELEGRAM_CHAT_ID'),
